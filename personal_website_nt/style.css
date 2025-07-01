@@ -1,0 +1,255 @@
+* { box-sizing: border-box; margin:0; padding:0 }
+body {
+    font-family: sans-serif;
+    overflow-x: hidden;
+    scroll-behavior: auto;
+}
+
+#navigation_bar {
+    position: fixed; top:0; left:0; right:0;
+    background:#eee; display:flex;
+    justify-content:center; gap:30px;
+    padding:10px; z-index:10;
+}
+#navigation_bar a {
+    text-decoration:none; color:#333;
+    padding:5px 10px; transition: background .2s;
+}
+#navigation_bar a:hover {
+    background:rgba(0,0,0,0.1);
+    color: orangered;
+}
+#navigation_bar a.active {
+    border-bottom: 5px solid orange;
+}
+
+#home {
+    position: relative;
+    height: calc(100vh - 50px);
+    margin-top:50px;
+    overflow:hidden;
+}
+#home h1 {
+    position: relative; z-index:2;
+    text-align:center; color:#fff;
+    background:rgba(0,0,0,0.5);
+    padding:20px;
+}
+#home img {
+    position:absolute; top:0; left:0;
+    width:100%; height:100%;
+    object-fit:cover;
+    transform-origin:center center;
+    transform: scale(1);
+}
+
+@keyframes zoomIn {
+    from { transform: scale(1); }
+    to   { transform: scale(8); }
+}
+#home img.zooming {
+    animation: zoomIn 0.8s ease-in-out forwards;
+}
+
+#about, #skills, #travelling, #contact {
+    padding: 100px 20px;
+    background: #f0f0f0;
+    min-height: 100vh;
+    border-top: 1px solid #ddd;
+}
+
+#about h1 {
+    position: relative; z-index:2;
+    text-align:center; color:#fff;
+    background:rgba(0,0,0,0.5);
+    padding:20px;
+}
+#about img {
+    position: absolute;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    transform-origin: center center;
+    transform: scale(1);
+    left: 0;
+    top: 100vh;
+}
+
+
+#about, #skills, #travelling, #contact {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    padding: 0;
+}
+
+#about img, #skills img, #travelling img, #contact img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+#about h2, #skills h2, #travelling h2, #contact h2,
+#about p,  #skills p, #travelling p,  #contact p {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    padding: 10px 20px;
+    margin-bottom: 0;
+}
+
+#about, #skills, #travelling, #contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#about{
+    justify-content: flex-start;
+}
+#about h2{
+    margin-top: 150px;
+    font-size: 2em;
+    font-weight: bold;
+    background: rgba(255, 165, 0, 0.8);
+    color: transparent;
+    -webkit-text-stroke: 1.5px white;
+    border-radius: 5px;
+}
+#about p{
+    background: rgba(255, 165, 0, 0.8);
+    width: 70%;
+    margin: auto;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+#skills h2{
+    margin-top: 15%;
+    font-size: 2em;
+    font-weight: bold;
+    color: transparent;
+    -webkit-text-stroke: 1.5px white;
+    border-radius: 5px;
+}
+
+#logos{
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    position: relative;
+}
+#logos img{
+    height: 150px;
+    width: 150px;
+    margin-left: 30px;
+    position: relative;
+}
+#travelling{
+    background: rgba(205, 197, 255, 1);
+}
+
+#travelling h2{
+    font-size: 2em;
+    font-weight: bold;
+    color: transparent;
+    -webkit-text-stroke: 1.5px white;
+    border-radius: 5px;
+}
+.travel-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    width: 100vw;
+    height: 100vh;
+    gap: 0;
+}
+.travel-item {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.travel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.travel-item span {
+    position: absolute;
+    top:20px;
+    padding: 8px 14px;
+    font-size: 2em;
+    font-weight: bold;
+    background: rgba(255, 165, 0, 0.6);
+    color: transparent;
+    -webkit-text-stroke: 1.75px white;
+    border-radius: 5px;
+}
+
+.travel-item:nth-child(1) span, .travel-item:nth-child(3) span {
+    left: 20px;
+}
+
+.travel-item:nth-child(2) span, .travel-item:nth-child(4) span {
+    right: 20px;
+}
+
+#contact {
+    background-color: rgba(143,163,255,1);
+    padding: 100px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#contact h2 {
+    font-size: 2em;
+    font-weight: bold;
+    color: transparent;
+    -webkit-text-stroke: 1.5px white;
+    border-radius: 5px;
+}
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 90%;
+    max-width: 500px;
+    margin-top: 20px;
+}
+
+#contact-form input, #contact-form textarea {
+    padding: 12px 15px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+
+#contact-form textarea {
+    resize: vertical;
+}
+
+#contact-form button {
+    padding: 12px;
+    font-size: 1em;
+    background-color: orangered;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#contact-form button:hover {
+    background-color: darkorange;
+}
